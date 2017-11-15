@@ -1,0 +1,9 @@
+﻿#隐藏文件 和 文件夹
+.*
+
+#.gitignore
+!.gitignore
+
+#compiled files
+*.exe
+*.class
