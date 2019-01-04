@@ -56,7 +56,7 @@ function LCR_Stack(root) {
     return trace;
 }
 
-// 中序简历：递归
+// 中序遍历：递归
 let traceLCR = [];
 function LCR_Rec(root) {
     if (root) {
@@ -66,7 +66,32 @@ function LCR_Rec(root) {
     }
 }
 
-// 后序遍历
+// 后序遍历：非递归
+function LRC_Stack(root) {
+    let p = root, r = null;
+    let s = [];
+    let trace = [];
+    while (p || s.length) {
+        if (p) {//走到最左边
+            s.push(p);
+            p = p.left;
+        }
+        else {
+            p = s[s.length - 1];
+            if (p.right && p.right != r)//右子树存在，未被访问
+                p = p.right;
+            else {
+                s.pop();
+                trace.push(p.val);
+                r = p;//记录最近访问过的节点
+                p = null;//节点访问完后，重置p指针
+            }
+        }//else
+    }//while
+    return trace;
+}
+
+// 后序遍历：递归
 let traceLRC = [];
 function LRC_Rec(root) {
     if (root) {
@@ -111,7 +136,7 @@ let root = {
         }
     }
 }
-console.log(LCR_Stack(root))
+console.log(LRC_Stack(root))
 // LCR_Rec(root);
 // let test = traceLCR;
 // console.log(test)
