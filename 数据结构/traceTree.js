@@ -55,6 +55,9 @@ function LCR_Stack(root) {
                 let t = stack.pop();
                 trace.push(t.val);
                 r = t.right;
+                if (!t.right && !t.left) {
+                    console.log(t.val + ': leaf');
+                }
             }
         }
     }
