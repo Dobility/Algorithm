@@ -1,3 +1,7 @@
+/**
+ * 二叉树的三种遍历方式（递归、非递归）
+ */
+
 function TreeNode(x) {
     this.val = x;
     this.left = null;
@@ -42,15 +46,16 @@ function LCR_Stack(root) {
     let r = root;
     while (r || stack.length) {
         // 有点深度遍历的感觉，把左子树全部压入栈
-        while (r) {
+        if (r) {
             stack.push(r);
             r = r.left;
-        }
-        // 输出数据
-        if (stack.length) {
-            let t = stack.pop();
-            trace.push(t.val);
-            r = t.right;
+        } else {
+            // 输出数据
+            if (stack.length) {
+                let t = stack.pop();
+                trace.push(t.val);
+                r = t.right;
+            }
         }
     }
     return trace;
@@ -136,7 +141,20 @@ let root = {
         }
     }
 }
-console.log(LRC_Stack(root))
+
+// 树形状：
+//         10
+//        /  \
+//       5   15
+//      / \  / \
+//     3  8 12  17
+//    /\  /  \
+//   1 4 7   13
+// 先序遍历：[10, 5, 3, 1, 4, 8, 7, 15, 12, 13, 17]
+// 中序遍历：[1, 3, 4, 5, 7, 8, 10, 12, 13, 15, 17]
+// 后序遍历：[1, 4, 3, 7, 8, 5, 13, 12, 17, 15, 10]
+
+console.log(LCR_Stack(root))
 // LCR_Rec(root);
 // let test = traceLCR;
 // console.log(test)
