@@ -13,7 +13,9 @@
 
 function FindPath(root, expectNumber) {
     let result = [];
-    findPath(root, expectNumber, [], result);
+    if (root) {
+        findPath(root, expectNumber, [], result);
+    }
     let paths = [];
     result.forEach(path => {
         paths.push(eval(path));
@@ -22,25 +24,23 @@ function FindPath(root, expectNumber) {
 }
 
 function findPath(root, expectNumber, path, result) {
-    if (root) {
-        path.push(root.val);
-        if (!root.left && !root.right) {
-            let sum = 0;
-            path.forEach(i => {
-                sum += i;
-            });
-            if (sum == expectNumber) {
-                result.push(JSON.stringify(path));
-            }
+    path.push(root.val);
+    if (!root.left && !root.right) {
+        let sum = 0;
+        path.forEach(i => {
+            sum += i;
+        });
+        if (sum == expectNumber) {
+            result.push(JSON.stringify(path));
         }
-        if (root.left) {
-            findPath(root.left, expectNumber, path, result);
-        }
-        if (root.right) {
-            findPath(root.right, expectNumber, path, result);
-        }
-        path.pop();
     }
+    if (root.left) {
+        findPath(root.left, expectNumber, path, result);
+    }
+    if (root.right) {
+        findPath(root.right, expectNumber, path, result);
+    }
+    path.pop();
 }
 
 

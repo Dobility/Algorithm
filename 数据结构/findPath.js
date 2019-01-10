@@ -7,18 +7,20 @@ let root = require('../data/BinaryTree').root;
 // 递归方法
 let findPath_Rec = {
     findPath(root, path, paths) {
-        path.push(root.val);
-        if (!root.left && !root.right) {
-            // paths.push(path);    // 直接 push 数组，最终输出 paths 每个元素都为空元素，[ [], [], ... ]
-            paths.push(JSON.stringify(path));
+        if (root) {
+            path.push(root.val);
+            if (!root.left && !root.right) {
+                // paths.push(path);    // 直接 push 数组，最终输出 paths 每个元素都为空元素，[ [], [], ... ]
+                paths.push(JSON.stringify(path));
+            }
+            if (root.left) {
+                this.findPath(root.left, path, paths);
+            }
+            if (root.right) {
+                this.findPath(root.right, path, paths);
+            }
+            path.pop();
         }
-        if (root.left) {
-            this.findPath(root.left, path, paths);
-        }
-        if (root.right) {
-            this.findPath(root.right, path, paths);
-        }
-        path.pop();
     },
     test() {
         let paths = [];
