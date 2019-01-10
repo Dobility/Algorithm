@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
 		k[i] = a / RomanNum[i];
 		a -= k[i] * RomanNum[i];
 	}
-	a = 0;
+	a = 0;	// 重新利用a，作为数组下标
 	for (int i = 6; i >= 0; i--) {
 		// 逆序
 		if (k[i] == 4 && k[i-1] == 0) {
