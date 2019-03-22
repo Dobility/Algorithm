@@ -1,3 +1,5 @@
+require('./MathUtils')
+
 // 返回最后的元素
 Array.prototype.top = function() {
     if (this.length) {
@@ -17,4 +19,17 @@ Array.prototype.traverse = function (callback, formatFn) {
             callback(item);
         })
     }
+};
+
+// 打乱
+Array.prototype.shuffle = function() {
+    for (let i = 0; i < this.length - 1; i++) {
+        let rIndex = Math.randomInt(i, this.length - 1)
+        if (rIndex != i) {
+            let tmp = this[i]
+            this[i] = this[rIndex]
+            this[rIndex] = tmp
+        }
+    }
+    return this
 };
