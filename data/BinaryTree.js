@@ -5,7 +5,7 @@ function TreeNode(x) {
     this.right = null;
 }
 
-// 树形状：
+// 普通二叉树，形状：
 //         10
 //        /  \
 //       5   15
@@ -49,6 +49,32 @@ let root = {
     }
 }
 
+// 二叉搜索树，形状：
+//          5
+//        /  \
+//       2    8
+//      / \  /
+//     1  4 6
+let searchTree = {
+    val: 5,
+    left: {
+        val: 2,
+        left: {
+            val: 1, left: null, right: null
+        },
+        right: {
+            val: 4, left: null, right: null
+        }
+    },
+    right: {
+        val: 8,
+        left: {
+            val: 6, left: null, right: null
+        },
+        right: null
+    }
+}
+
 module.exports = {
-    TreeNode, root
+    TreeNode, root, searchTree
 }

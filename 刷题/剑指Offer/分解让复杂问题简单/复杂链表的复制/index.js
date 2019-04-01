@@ -9,24 +9,13 @@ function RandomListNode(x){
     this.next = null;
     this.random = null;
 }
-// function Clone(pHead) {
-//     if (!pHead)
-//         return null;
-//     let list = new RandomListNode(pHead.label);
-//     list.next = Clone(pHead.next);
-//     list.random = pHead.random;
-//     return list;
-// }
 function Clone(pHead) {
     if (!pHead)
-        return null;
-    let list = new RandomListNode(pHead.label);
-    list.next = copy(pHead.next);
-    list.random = copy(pHead.random);
-    return list;
-}
-function copy(pHead) {
-    return JSON.parse(JSON.stringify(pHead));
+        return null
+    let list = new RandomListNode(pHead.label)
+    list.next = Clone(pHead.next)
+    list.random = pHead.random  // 不需要Clone，保留引用地址即可
+    return list
 }
 
 let p1 = new RandomListNode(1);
@@ -34,7 +23,6 @@ let p2 = new RandomListNode(2);
 let p3 = new RandomListNode(3);
 p1.next = p2;
 p1.random = p3;
-// console.log(Clone(p1) === p1);
 let pc = Clone(p1);
 p3.label = 20;
-console.log(pc.random)
+console.log(pc)
