@@ -14,7 +14,7 @@ function MoreThanHalfNum_Solution(numbers) {
         return 0
     let record = {}
     numbers.forEach(num => {
-        record[num] == undefined ? record[num] = 1 : record[num]++
+        record[num] ? record[num] = 1 : record[num]++
     })
     let max = Number.MIN_VALUE
     let mode = numbers[0]
