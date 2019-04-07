@@ -33,3 +33,8 @@ Array.prototype.shuffle = function() {
     }
     return this
 };
+
+// 去重
+Array.prototype.distinct = function() {
+    return Array.from(new Set(this))
+}
