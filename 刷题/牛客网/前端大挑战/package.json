@@ -4,7 +4,7 @@
     "description": "es6转es5",
     "devDependencies": {
         "@babel/core": "^7.5.0",
-        "babel-preset-env": "^1.7.0",
+        "@babel/preset-env": "^7.5.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-rename": "^1.4.0"

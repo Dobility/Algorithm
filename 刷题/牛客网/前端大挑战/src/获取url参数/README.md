@@ -17,3 +17,6 @@ http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe
 ```
 [1, 2, 3]
 ```
+
+# 思路
+字符串切割，对象处理
