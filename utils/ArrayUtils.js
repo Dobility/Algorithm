@@ -2,10 +2,7 @@ require('./MathUtils')
 
 // 返回最后的元素
 Array.prototype.top = function() {
-    if (this.length) {
-        return this[this.length - 1];
-    }
-    return undefined;
+    return this[this.length - 1];
 };
 
 // 遍历
