@@ -1,4 +1,4 @@
-require('../../../utils/ArrayUtils');
+require('../../../../utils/ArrayUtils');
 
 const n = 4, m = 3;
 let A = [];
