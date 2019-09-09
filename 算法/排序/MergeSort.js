@@ -12,7 +12,7 @@ function MergeSort(arr, low, high) {
     }
 }
 
-// 合并两个有序数组的算法
+// 合并两个有序数组的算法：开辟数组空间O(n)
 function Merge(arr, low, mid, high) {
     let newArr = []
     let i = low, j = mid + 1
@@ -34,7 +34,27 @@ function Merge(arr, low, mid, high) {
     }
 }
 
-let arr = require('../../data/Array').messedArr
+// 合并算法：O(1)空间，但有大量的元素移动
+function MergeMove(arr, low, mid, high) {
+    let i = low, j = mid + 1
+    while (i <= high && j <= high) {
+        if (i == j) {
+            break
+        } else if (arr[i] <= arr[j]) {
+            i++
+        } else {
+            let tmp = arr[j]
+            for (let k = j; k > i; k--) {
+                arr[k] = arr[k - 1]
+            }
+            arr[i] = tmp
+            j++
+            i++
+        }
+    }
+}
+
+let arr = require('../../data/Array').simpleArr
 console.log(arr)
 MergeSort(arr, 0, arr.length - 1)
 console.log(arr)

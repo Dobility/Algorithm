@@ -137,6 +137,30 @@ let LRC_Rec = {
     }
 }
 
+// 层次遍历：非递归
+let traceLevel = [];
+let Level_queue = {
+    Level(root) {
+        let queue = [];
+        let trace = [];
+        queue.push(root);
+        while (queue.length) {
+            let r = queue.shift();
+            trace.push(r.val);
+            if (r.left) {
+                queue.push(r.left);
+            }
+            if (r.right) {
+                queue.push(r.right);
+            }
+        }
+        return trace;
+    },
+    test() {
+        console.log(this.Level(root));
+    }
+}
+
 console.log('----先序遍历：非递归----');
 CLR_Stack.test();
 console.log('----先序遍历：递归----');
@@ -149,3 +173,5 @@ console.log('----后序遍历：非递归----');
 LRC_Stack.test();
 console.log('----后序遍历：递归----');
 LRC_Rec.test();
+console.log('----层次遍历：非递归----');
+Level_queue.test();

@@ -1,9 +1,10 @@
-﻿#隐藏文件 和 文件夹
-.*
-
-#.gitignore
-!.gitignore
-
-#compiled files
+﻿# compiled files
 *.exe
 *.class
+*.es5.js
+
+# lib
+node_modules
+
+# ide
+.idea
